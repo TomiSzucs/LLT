@@ -99,7 +99,7 @@ jsPsych.plugins['preload'] = (function() {
       var failed_audio = [];
       var failed_video = [];
       var detailed_errors = [];
-      var in_safe_mode = jsPsych.getSafeModeStatus();
+      //var in_safe_mode = jsPsych.getSafeModeStatus();
 
       // create list of media to preload //
 
@@ -129,10 +129,12 @@ jsPsych.plugins['preload'] = (function() {
       audio = jsPsych.utils.unique(jsPsych.utils.flatten(audio));
       video = jsPsych.utils.unique(jsPsych.utils.flatten(video));
 
+      /*
       if (in_safe_mode) {
         // don't preload video if in safe mode (experiment is running via file protocol)
         video = [];
       }
+      */
 
       // render display of message and progress bar
 

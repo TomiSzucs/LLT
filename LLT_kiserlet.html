@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="jspsych-psychophysics-2.0/jspsych.js"></script>
+  <script src="jspsych-6.3.1/jspsych.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-instructions.js"></script>
   <script src="jspsych-psychophysics-2.0/jspsych-psychophysics.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
@@ -32,6 +32,7 @@ window.addEventListener("load",function() { changeBackground('black') });
 var text_color = "white"
 
 var timeline = []
+
 
 //Stimuli for distractor task
 var maths_list_og = []
@@ -69,35 +70,36 @@ var Y_fifth = Y_fourth + picture_height + space_vertical
 var Y_sixth = Y_fifth + picture_height + space_vertical
 
 //List for preloading
-let all_images = ["ListPractice/1.bmp", "ListPractice/2.bmp", "ListPractice/3.bmp", "ListPractice/4.bmp", "ListPractice/5.bmp", "ListPractice/6.bmp", "List1/1.bmp", "List1/5.bmp", "List1/7.bmp","List1/8.bmp","List1/9.bmp", "List1/10.bmp", "List1/11.bmp", "List1/13.bmp", "List1/14.bmp", "List1/15.bmp", "List1/16.bmp", "List1/17.bmp", "List1/18.bmp", "List1/19.bmp", "List1/21.bmp", "List1/22.bmp", "List1/23.bmp", "List1/24.bmp", "List1/25.bmp", "List1/26.bmp", "List1/27.bmp", "List1/28.bmp", "List1/29.bmp", "List1/30.bmp"];
+let all_images = ["ListPractice/practice_1.bmp", "ListPractice/practice_2.bmp", "ListPractice/practice_3.bmp", "ListPractice/practice_4.bmp", "ListPractice/practice_5.bmp", "ListPractice/practice_6.bmp", "List1/1.bmp", "List1/5.bmp", "List1/7.bmp","List1/8.bmp","List1/9.bmp", "List1/10.bmp", "List1/11.bmp", "List1/13.bmp", "List1/14.bmp", "List1/15.bmp", "List1/16.bmp", "List1/17.bmp", "List1/18.bmp", "List1/19.bmp", "List1/21.bmp", "List1/22.bmp", "List1/23.bmp", "List1/24.bmp", "List1/25.bmp", "List1/26.bmp", "List1/27.bmp", "List1/28.bmp", "List1/29.bmp", "List1/30.bmp"];
+//jsPsych.pluginAPI.preloadImages(all_images, function(){ startExperiment(); });
 
 //lists for practice
 let practice_picture_list_1 = [
-  {stimulus: "ListPractice/2.bmp", X: X_second, Y: Y_fourth},
-  {stimulus: "ListPractice/3.bmp", X: X_fifth, Y: Y_second},
-  {stimulus: "ListPractice/4.bmp", X: X_first, Y: Y_third},
+  {stimulus: "ListPractice/practice_2.bmp", X: X_second, Y: Y_fourth},
+  {stimulus: "ListPractice/practice_3.bmp", X: X_fifth, Y: Y_second},
+  {stimulus: "ListPractice/practice_4.bmp", X: X_first, Y: Y_third},
 ]
 
 let practice_recall_list_1 = [
   {stimulus: "List1/28.bmp", left_X: window.innerWidth/100*49, right_X: window.innerWidth/100*49 + picture_width, top_Y: window.innerHeight/100*53, bottom_Y: window.innerHeight/100*53 +picture_height, was: 1},
-  {stimulus: "ListPractice/4.bmp", left_X: X_first, right_X: X_first + picture_width, top_Y: Y_third, bottom_Y: Y_third + picture_height, was: 0},
-  {stimulus: "ListPractice/2.bmp", left_X: X_second, right_X: X_second + picture_width, top_Y: Y_fourth, bottom_Y: Y_fourth + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_4.bmp", left_X: X_first, right_X: X_first + picture_width, top_Y: Y_third, bottom_Y: Y_third + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_2.bmp", left_X: X_second, right_X: X_second + picture_width, top_Y: Y_fourth, bottom_Y: Y_fourth + picture_height, was: 0},
   {stimulus: "List1/29.bmp", left_X: window.innerWidth/100*42, right_X: window.innerWidth/100*42 + picture_width, top_Y: window.innerHeight/100*53, bottom_Y: window.innerHeight/100*53 +picture_height, was: 1},
-  {stimulus: "ListPractice/3.bmp", left_X: X_fifth, right_X: X_fifth + picture_width, top_Y: Y_second, bottom_Y: Y_second + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_3.bmp", left_X: X_fifth, right_X: X_fifth + picture_width, top_Y: Y_second, bottom_Y: Y_second + picture_height, was: 0},
   {stimulus: "List1/30.bmp", left_X: window.innerWidth/100*56, right_X: window.innerWidth/100*56 + picture_width, top_Y: window.innerHeight/100*20, bottom_Y: window.innerHeight/100*20 +picture_height, was: 1},
 ] 
 
 let practice_picture_list_2 = [
-  {stimulus: "ListPractice/1.bmp", X: X_fourth, Y: Y_fourth},
-  {stimulus: "ListPractice/5.bmp", X: X_fourth, Y: Y_first},
-  {stimulus: "ListPractice/6.bmp", X: X_third, Y: Y_second},
+  {stimulus: "ListPractice/practice_1.bmp", X: X_fourth, Y: Y_fourth},
+  {stimulus: "ListPractice/practice_5.bmp", X: X_fourth, Y: Y_first},
+  {stimulus: "ListPractice/practice_6.bmp", X: X_third, Y: Y_second},
 ]
 let practice_recall_list_2 = [
   {stimulus: "List1/27.bmp", left_X: window.innerWidth/100*49, right_X: window.innerWidth/100*49 + picture_width, top_Y: window.innerHeight/100*53, bottom_Y: window.innerHeight/100*53 +picture_height, was: 1},
-  {stimulus: "ListPractice/5.bmp", left_X: X_fourth, right_X: X_fourth + picture_width, top_Y: Y_first, bottom_Y: Y_first + picture_height, was: 0},
-  {stimulus: "ListPractice/1.bmp", left_X: X_fourth, right_X: X_fourth + picture_width, top_Y: Y_fourth, bottom_Y: Y_fourth + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_5.bmp", left_X: X_fourth, right_X: X_fourth + picture_width, top_Y: Y_first, bottom_Y: Y_first + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_1.bmp", left_X: X_fourth, right_X: X_fourth + picture_width, top_Y: Y_fourth, bottom_Y: Y_fourth + picture_height, was: 0},
   {stimulus: "List1/26.bmp", left_X: window.innerWidth/100*42, right_X: window.innerWidth/100*42 + picture_width, top_Y: window.innerHeight/100*53, bottom_Y: window.innerHeight/100*53 +picture_height, was: 1},
-  {stimulus: "ListPractice/6.bmp", left_X: X_third, right_X: X_third + picture_width, top_Y: Y_second, bottom_Y: Y_second + picture_height, was: 0},
+  {stimulus: "ListPractice/practice_6.bmp", left_X: X_third, right_X: X_third + picture_width, top_Y: Y_second, bottom_Y: Y_second + picture_height, was: 0},
   {stimulus: "List1/25.bmp", left_X: window.innerWidth/100*56, right_X: window.innerWidth/100*56 + picture_width, top_Y: window.innerHeight/100*20, bottom_Y: window.innerHeight/100*20 +picture_height, was: 1},
 ]
 
@@ -267,10 +269,11 @@ console.log(recall_list); */
         x = jsPsych.data.getLastTimelineData().filter({correct_position: true}).count();
         context.fillStyle = text_color;
         context.font = '32px serif';
-        context.fillText('Helyes válaszok száma: '+x, window.innerWidth/100*40, window.innerHeight/100*50);
+        context.textAlign = 'center';
+        context.fillText('Helyes válaszok száma: '+x, window.innerWidth/100*50, window.innerHeight/100*50);
+        context.fillText('A folytatáshoz kattintson a "Folytatás" gombra!', window.innerWidth/100*50, window.innerHeight/100*60);
       }
     }
-
 
 
     //Trials
@@ -288,9 +291,22 @@ console.log(recall_list); */
       button_label: 'Folytatás',
     };
 
+    var codename = {
+      type: 'survey-text',
+      button_label: 'Folytatás',
+      questions: [
+        {prompt: `<p style="color:${text_color}">Írja be az azonosítóját!</p><p style="color:${text_color}">A folytatáshoz kattintson a "Folytatás" gombra!</p>`}
+        ],
+      data: {type: 'codename'},
+      on_finish: function(data){
+        console.log(data.response)
+        jsPsych.data.addProperties({participantID: data.response.Q0})
+      },
+    };
+
     var rip = {
       type: "html-keyboard-response",
-      stimulus: '<h1 style="color:' + text_color + '">Köszönjük!</h1><h1 style="color:' + text_color + '">Bezárhatja az ablakot.</h1>',
+      stimulus: '<h1 style="color:' + text_color + '">Köszönjük, hogy részt vett a kísérletben!</h1><h1 style="color:' + text_color + '">Nyomja meg a szóközt, majd bezárhatja az ablakot.</h1>',
     }
 
     var fullscreen = {
@@ -302,7 +318,7 @@ console.log(recall_list); */
 
     var trial_instruction1 = {
       type: 'instructions',
-      pages: ['<h1 style="color:' + text_color + '"> Üdvözöljük a kísérletben!</h1> <p style="color:' + text_color + '"> A következőkben egy memória játékot fog játszani. 25db lefordított kártyát fogunk mutatni. Ezután egy kártyát rövid időre felfordítunk, így láthatja milyen tárgyat ábrázol. Ezután újabb kártyákat fordítunk fel. Jegyezze meg a felfordított kártyán lévő képet.</p> <p style="color:' + text_color + '">Először 3 kártyát mutatunk meg gyakorlásképp. Ha készen áll, nyomja meg a "Folytatás" gombot. </p>"'],
+      pages: ['<h1 style="color:' + text_color + '"> Üdvözöljük a kísérletben!</h1> <p style="color:' + text_color + '"> A következőkben egy memória játékot fog játszani. 36db lefordított kártyát fog látni a képernyőn. Egy kártyát rövid időre felfordítunk, így láthatja milyen tárgyat ábrázol. Ezután újabb kártyákat fordítunk fel.</p><p style="color:' + text_color + '">A feladata az, hogy megjegyezze a felfordított kártyákon lévő képeket.</p> <p style="color:' + text_color + '">Most egy kis gyakorlás következik 3 kártyával. Ha készen áll, nyomja meg a "Folytatás" gombot. </p>"'],
       show_clickable_nav: true,
       button_label_next: 'Folytatás',
       allow_backward: false,
@@ -312,7 +328,7 @@ console.log(recall_list); */
     }
     var trial_instruction2 = {
       type: 'instructions',
-      pages: ['<p style="color:' + text_color + '">Miután megjegyzte a felfordított kártyákat, új kártyákat fogunk mutatni a lefordított kártyák fölött. Mindegyikről megkérdezzük, hogy látta-e már.</p><p style="color:' + text_color + '">Ha a válasz <b>igen, kattintson az "Igen" gombra."</b></p> <p style="color:' + text_color + '"> Ha a válasz <b>nem, kattintson a "Nem" gombra.</b></p><p style="color:' + text_color + '">Majd megkérdezzük, hogy hol látta a kártyát. Ekkor csak kattintson a megfelelő kártyára.</p>'],
+      pages: ['<p style="color:' + text_color + '">Miután megjegyzte a felfordított kártyákat, a következő szakaszban a képernyő felső részén mutatunk Önnek kártyákat. Mindegyikről megkérdezzük, hogy látta-e már a korábban felfordított kártyák között.</p><p style="color:' + text_color + '">Ha a válasza <b>igen, akkor kattintson az "Igen" gombra."</b></p> <p style="color:' + text_color + '"> Ha a válasza <b>nem, akkor kattintson a "Nem" gombra.</b></p><p style="color:' + text_color + '">Ha az "Igen"-re kattintott, akkor azt is megkérdezzük, hogy hol látta az adott kártyát. Ekkor csak kattintson a megfelelő lefordított kártyára.</p>'],
       show_clickable_nav: true,
       button_label_next: 'Folytatás',
       allow_backward: false,
@@ -320,7 +336,7 @@ console.log(recall_list); */
 
     var trial_instruction3 = {
       type: 'instructions',
-      pages: ['<p style="color:' + text_color + '">A játék pontosan úgy működik, ahogy az imént gyakoroltuk, azzal a különbséggel, hogy most 12 kártyát fogunk felfordítani. Ismételten meg kell jegyeznie azokat a kártyákat ahol a kép megjelenik. Ha készen áll, nyomja meg a "Folytatás" gombot. </p>'],
+      pages: ['<p style="color:' + text_color + '">Most kezdődik a kísérlet. Minden pontosan úgy működik, ahogy az imént gyakoroltuk, azzal a különbséggel, hogy most 15 kártyát és azok helyét kell megjegyezni. Ha készen áll, nyomja meg a "Folytatás" gombot. </p>'],
       show_clickable_nav: true,
       button_label_next: 'Folytatás',
       allow_backward: false,
@@ -336,6 +352,14 @@ console.log(recall_list); */
     var trial_instruction_maths = {
       type: 'instructions',
       pages: [`<p style="color:${text_color}">Most egy más fajta feladat következik. A képernyőn egyszerű összeadási feladatokat fog látni.</p><p style="color:${text_color}"> Írja be az összeadások eredményét a szövegdobozba a billentyűzet segítségével, majd kattintson a tovább gombra.</p><p style="color:${text_color}"> Ha készen áll, nyomja meg a "Folytatás" gombot. </p>`],
+      show_clickable_nav: true,
+      button_label_next: 'Folytatás',
+      allow_backward: false,
+    }
+
+    var trial_instruction_recall = {
+      type: 'instructions',
+      pages: ['<p style="color:' + text_color + '">Most visszatérünk a kártyákhoz. A képernyő felső részén mutatunk Önnek kártyákat. Mindegyikről megkérdezzük, hogy látta-e már korábban, az összeadási feladatok előtt látott felfordított kártyák között.</p><p style="color:' + text_color + '">Ha a válasza <b>igen, akkor kattintson az "Igen" gombra."</b></p> <p style="color:' + text_color + '"> Ha a válasza <b>nem, akkor kattintson a "Nem" gombra.</b></p><p style="color:' + text_color + '">Ha az "Igen"-re kattintott, akkor azt is megkérdezzük, hogy hol látta az adott kártyát. Ekkor csak kattintson a megfelelő lefordított kártyára.</p>'],
       show_clickable_nav: true,
       button_label_next: 'Folytatás',
       allow_backward: false,
@@ -411,7 +435,8 @@ console.log(recall_list); */
       type: 'psychophysics',
       stimuli: [text_feedback],
       background_color: 'black',
-      response_type: 'mouse',
+      response_type: 'button',
+      button_choices: ['Folytatás'],
       response_start_time: 0,
       data: {type: 'trial_feedback'},
     }
@@ -422,10 +447,18 @@ console.log(recall_list); */
         {prompt: jsPsych.timelineVariable('num_1', true) + ' + ' + jsPsych.timelineVariable('num_2') + ' = ', name: "math_question"}, 
       ],
     }*/
-
+    var time_left = 3000
     var distractor_maths = {
       type: 'survey-html-form',
       preamble: `<h1 style="color:${text_color}"> Mi az eredmény?</h1>`,
+      timing_response: function() {
+        return time_left;
+      },
+      on_finish: function(data) {
+        time_left = time_left - data.rt
+        console.log(time_left)
+      },
+      timing_post_trial: 0,
       html: function() {
         var text_color = 'white'
         var num_1 = jsPsych.timelineVariable('num_1', true)
@@ -435,6 +468,17 @@ console.log(recall_list); */
       },
       required: true,
       button_label: "Tovább",
+    }
+
+    var distractor_loop = {
+      timeline: [distractor_maths],
+      conditional_function: function(){
+        if (time_left > 0){
+          return true;
+        } else {
+          return false;
+        }
+      }
     }
     //Trial blocks
 
@@ -468,7 +512,7 @@ console.log(recall_list); */
     }
 
     var trials_maths = {
-      timeline: [distractor_maths],
+      timeline: [distractor_loop],
       timeline_variables: maths_list,
     }
 
@@ -480,17 +524,17 @@ console.log(recall_list); */
 
     var preload = {
       type: 'preload',
-      auto_preload: true,
+      auto_preload: false,
       images: all_images,
       show_progress_bar: true,
     }
 
-    //timeline.push(preload)
+    timeline.push(preload);
     timeline.push(fullscreen);
     timeline.push(consent);
 
     var consented = {
-      timeline: [trial_instruction1, trials_practice_memorize_1, trial_instruction2, trials_practice_recall_1, trial_feedback, trial_instruction4, trials_practice_memorize_2, trial_instruction2, trials_practice_recall_2, trial_feedback, trial_instruction3, trials_memorise, trial_instruction_maths, trials_maths, trials_recall, fullscreen_end, rip],
+      timeline: [codename, trial_instruction1, trials_practice_memorize_1, trial_instruction2, trials_practice_recall_1, trial_feedback, trial_instruction4, trials_practice_memorize_2, trial_instruction2, trials_practice_recall_2, trial_feedback, trial_instruction3, trials_memorise, trial_instruction_maths, trials_maths, trial_instruction_recall, trials_recall, fullscreen_end, rip],
       conditional_function: function(){
         var data = jsPsych.data.get().last(1).values()[0];
         if (data.response.Consent == 'Elfogadom'){
